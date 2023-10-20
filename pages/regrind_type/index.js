@@ -1,0 +1,102 @@
+import { useEffect, useState } from 'react';
+import {Box, Button, Flex, Title, Loader } from '@mantine/core';
+import Layout from '@/components/layout/Layout';
+import { useRouter } from 'next/router';
+import { get,del } from '../api/apiUtils';
+import { notifications } from '@mantine/notifications';
+import DeleteModal from '@/components/DeleteModal';
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import MantineReactTables from '@/components/MantineReactTable';
+import { UserManagement } from '@/utils/UserManagement';
+
+function RegrindType() {
+  const { t } = useTranslation('common')
+  const [records, setRecords] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [id,setId] = useState(false);
+  const [visible,setVisible] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const breadcrumbs = [
+    { label:t('regrindType'), link: '/regrind_type' },
+  ];
+  const editInfo=(row)=>{
+    router.push(`regrind_type/add_regrindtype/edit/${row.id}`);
+    
+  }
+  const handleDelete =async () => {
+    try {
+      const response =  await del(`/regrindtype/${id}/`)
+        notifications.show({
+          title: t('Success'),
+          message: t(response),
+          color: 'green',
+        });
+        fetchData();
+      } catch (error) {
+        notifications.show({
+          title:t('Error'),
+          message: t(error.trim()),
+          color: 'red',
+        }); 
+         }    
+      closeModal();
+    };
+  const deleteData = async (row) => {
+    setIsOpen(true);
+    setId(row.id)
+  };
+  const fetchData = async () => {
+    try {
+      const data = await get('/regrindtype/');
+      setRecords(data.reverse()); 
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
+  const router = useRouter();
+  const handleAddClient = () => {
+    router.push('regrind_type/add_regrindtype/new', null, { shallow: true });
+  };
+  const fetchClientId = () =>{
+    const profile_data = JSON.parse(UserManagement.getItem("profile_data") || '{}');
+    const visible = profile_data?.client === 1;    
+   setVisible(visible)
+  }
+
+useEffect(() => {
+  fetchData();
+  fetchClientId();
+}, []);
+const columns=[
+  { header: t('Regrind.Type'), accessorKey:"type", size:100  } ,
+  { header: t('Regrind.Axial Angle'),accessorKey:"axial_angle", size:100 }]
+  return (
+    <Layout breadcrumbs={breadcrumbs} >
+  <Box>
+    <DeleteModal isOpen={isOpen} onClose={closeModal}  onConfirm={handleDelete}/>
+    <Flex justify='space-between' mb='sm'>
+      <Title order={3}> {t('regrindType')}</Title>
+      <Button onClick={handleAddClient}>{t('Add New')}</Button>
+    </Flex>
+<MantineReactTables column={columns} data={records} deleteData={deleteData} editInfo={editInfo} visible={visible} loading={loading}/>
+    </Box>
+     </Layout>
+  );
+}
+export const getStaticProps = async ({
+  locale,
+}) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', [
+      'common'
+    ])),
+  },
+})
+export default RegrindType;

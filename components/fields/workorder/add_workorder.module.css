@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .selectbutton {
+    color: #3399F3;
+    font-size: 15px;
+  }

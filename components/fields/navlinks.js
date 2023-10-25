@@ -17,13 +17,14 @@ import {
 import { useEffect, useState } from "react";
 
 const Navlinks = () => {
-    const [visible, setVisible] = useState(false);
-       const profile_data = JSON.parse(
-          UserManagement.getItem("profile_data") || "{}"
-        );
+    // const [visible, setVisible] = useState(false);
+
+    const profile_data = JSON.parse(
+      UserManagement.getItem("profile_data") || "{}"
+    );
     useEffect(() => {
-        let data = profile_data?.client === 1;
-        setVisible(data);
+        // let data = profile_data?.client === 1;
+        // setVisible(data);
       }, []);
     const mockdata = [
         { label: "order", icon: IconCheckbox, link: "/order" },
@@ -41,7 +42,7 @@ const Navlinks = () => {
         {
           label: "Registration",
           icon: IconPlayerPlay,
-          visible: visible,
+          visible: profile_data?.client == 1 ? true:false,
           links: [
             { label: "Cutter", icon: IconTool, link: "/cutter" },
             { label: "MFG", icon: IconNorthStar, link: "/mfg" },
@@ -53,9 +54,9 @@ const Navlinks = () => {
             // { label: "Import/Export", icon:IconGradienter, link: "/" },
           ],
         },
-        {label: "Import/Export",icon: IconFileImport,visible: visible,link:"/importExport"},
+        {label: "Import/Export",icon: IconFileImport,visible: profile_data?.client == 1 ? true:false,link:"/importExport"},
         {
-          label: visible ? "Client_Dashboard" : "Dashboard",
+          label:"Dashboard",
           icon: IconDashboard,
           link: "/client_dashboard",
         },

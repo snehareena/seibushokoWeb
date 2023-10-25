@@ -34,6 +34,7 @@ const Dashboard =()=>{
   }
 
   useEffect(()=>{
+    console.log("Testing Data...");
     const profile_data = JSON.parse(UserManagement.getItem("profile_data") || '{}');
     const visible = profile_data?.client === 1; 
     const username = profile_data.username;

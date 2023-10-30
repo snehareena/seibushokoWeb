@@ -21,7 +21,6 @@ const ImageFile = (props) => {
       form.setFieldValue(name, "");
     } else {
       const currentDeleteImages = form.values["delete_image"] || [];
-      console.log(typeof currentDeleteImages);
       currentDeleteImages.push(name);
       form.setValues({ delete_image: currentDeleteImages });
       form.setFieldValue(name, "");

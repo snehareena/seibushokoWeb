@@ -30,7 +30,7 @@ export default function UserProfile() {
   return (
     <Layout breadcrumbs={breadcrumbs}>
         <Title ml='md' order={3}>{t('Profile')}</Title>
-        <Paper p="md"  radius="md" mt='sm' shadow="sm" style={{background:'rgba(231, 245, 255, .7)'}}>
+        <Paper p="md"  radius="md" mt='sm' shadow="sm" style={{background:'#EEEEEE'}}>
             <Group >
                     <Flex>
                         <Flex direction='column' justify='space-around'>

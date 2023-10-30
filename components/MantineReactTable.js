@@ -190,7 +190,6 @@ const MantineReactTables = (props) => {
       </Box>
     ),
   });
-  // console.log('table', table)
   return <MantineReactTable table={table}/>;
 };
 

@@ -75,7 +75,6 @@ export function NavbarNav() {
     <NavLink
       opened={navLinkStates[item.label]}
       onChange={(e) => {
-        console.log(e);
         handleToggleNavLink(item.label); // Toggle the specific NavLink's state when clicked
       }}
       key={item.label}

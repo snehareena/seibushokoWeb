@@ -10,6 +10,7 @@ if (typeof window !== 'undefined') {
   storedLanguage = window.localStorage.getItem(languageKey);
 }
 
+
 i18n
     .use(initReactI18next)
     .init({

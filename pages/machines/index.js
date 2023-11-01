@@ -62,14 +62,14 @@ function Machines() {
        const response =  await del(`/machines/${id}/`)
         notifications.show({
           title: "Success",
-          message: response,
+          message: t(response),
           color: 'green',
         });
         fetchData();
       } catch (error) {
         notifications.show({
           title: "Error",
-          message: error,
+          message: t(error.trim()),
           color: 'red',
         });    }    
       closeModal();

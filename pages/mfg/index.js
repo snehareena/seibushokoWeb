@@ -11,6 +11,7 @@ import formatdate from '@/utils/formatdate';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
 import WorkOrderListModal from '@/components/WorkOrderListModal';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 function MFG() {
   const { t } = useTranslation('common')
@@ -127,4 +128,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
-export default MFG;
+export default ProtectedRoute(MFG) ;

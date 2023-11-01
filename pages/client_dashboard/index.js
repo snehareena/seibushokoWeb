@@ -6,6 +6,7 @@ import AdminDashboard from "@/components/card/AdminDashboard";
 import ClientDash from "@/components/card/ClientDashboard";
 import { get } from "../api/apiUtils";
 import { UserManagement } from "@/utils/UserManagement";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const breadcrumbs = [
     { label: 'Dashboard', link: '/client_dashboard' },
@@ -67,4 +68,4 @@ export const getStaticProps = async ({
     },
   })
   
-export default Dashboard;
+export default ProtectedRoute(Dashboard) ;

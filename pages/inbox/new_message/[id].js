@@ -3,8 +3,9 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router';
 import MessageCard from './MessageCard';
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
-export default function Message({params}) {
+ function Message({params}) {
 
     const router = useRouter();
     const { id } = router.query;
@@ -35,3 +36,4 @@ export const getStaticPaths = async () => {
       ])),
     },
   })
+  export default ProtectedRoute(Message)

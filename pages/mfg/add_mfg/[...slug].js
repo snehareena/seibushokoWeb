@@ -21,6 +21,7 @@ import { getFormattedDate } from "@/utils/dateUtils";
 import { UserManagement } from "@/utils/UserManagement";
 import { removeNulls } from "@/utils/removeNulls";
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const registerBy = UserManagement.getItem("id");
 const userid = parseInt(registerBy);
@@ -227,4 +228,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
-export default AddMFG;
+export default ProtectedRoute(AddMFG) ;

@@ -4,8 +4,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ImportOrder from "./order";
 import ImportWorkOrder from "./workorder";
 import Export from "./export";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
-export default function Index() {
+ function Index() {
   const { t } = useTranslation('common')
 
   const breadcrumbs = [{ label: t('Import/Export'), link: '/importExport' },];
@@ -27,3 +28,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
+export default ProtectedRoute(Index)

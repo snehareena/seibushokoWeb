@@ -9,6 +9,7 @@ import { notifications } from "@mantine/notifications";
 import  { useState ,useEffect } from 'react';
 import { fetchAndTransformClientData,fetchAndTransformRoleData } from '@/pages/api/Select';
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const AddUser = () => {
   const [clients, setClient] = useState([]);
@@ -231,4 +232,4 @@ export const getStaticProps = async ({
   },
 })
 
-export default AddUser;
+export default ProtectedRoute(AddUser) ;

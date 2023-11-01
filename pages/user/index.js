@@ -9,8 +9,9 @@ import { notifications } from '@mantine/notifications';
 import DeleteModal from '@/components/DeleteModal';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
-export default function ClientList() {
+function ClientList() {
   const { t } = useTranslation('common')
   const [records, setRecords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -110,3 +111,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
+export default ProtectedRoute(ClientList)

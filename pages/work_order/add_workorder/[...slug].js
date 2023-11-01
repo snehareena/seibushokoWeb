@@ -16,6 +16,7 @@ import FormPart2 from "@/components/fields/workorder/form_part2";
 import FormPart3 from "@/components/fields/workorder/form_part3";
 import FormPart4 from "@/components/fields/workorder/form_part4";
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const registerBy = UserManagement.getItem("id");
 const userId = parseInt(registerBy);
@@ -262,4 +263,4 @@ export const getStaticProps = async ({ locale }) => ({
     ...(await serverSideTranslations(locale ?? "en", ["common"])),
   },
 });
-export default AddWorkOrder;
+export default ProtectedRoute(AddWorkOrder);

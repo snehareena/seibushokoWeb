@@ -11,6 +11,7 @@ import { removeNulls } from "@/utils/removeNulls";
 import { stringtoNull } from "@/utils/stringtoNull";
 import FormInput from "@/components/FormInput";
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const AddCutter = () => {
   const { t } = useTranslation("common");
@@ -272,4 +273,4 @@ export const getStaticProps = async ({ locale }) => ({
   },
 });
 
-export default AddCutter;
+export default ProtectedRoute(AddCutter) ;

@@ -11,8 +11,9 @@ import MantineReactTables from '@/components/MantineReactTable';
 import WorkOrderListModal from '@/components/WorkOrderListModal';
 import MFGListModal from '@/components/MFGListModal';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
  
-export default function CutterList() {
+function CutterList() {
   const { t } = useTranslation('common')
   const [records, setRecords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -121,3 +122,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
+export default ProtectedRoute(CutterList)

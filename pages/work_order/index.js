@@ -8,9 +8,10 @@ import { get } from '../api/apiUtils';
 import formatdate from '@/utils/formatdate';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 
-export default function ClientList() {
+function WorkOrderList() {
   const { t } = useTranslation('common')
   const [records, setRecords] = useState([]);
   const [visible, setVisible] = useState(false);
@@ -101,3 +102,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
+export default ProtectedRoute(WorkOrderList)

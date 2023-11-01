@@ -9,6 +9,7 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 function RegrindType() {
   const { t } = useTranslation('common')
@@ -99,4 +100,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
-export default RegrindType;
+export default ProtectedRoute(RegrindType) ;

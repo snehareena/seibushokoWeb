@@ -10,6 +10,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { stringtoNull } from '@/utils/stringtoNull';
 import { removeNulls } from '@/utils/removeNulls';
 import SubmitButtons from '@/components/SubmitButtons';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 
 function AddRegrindType() {
@@ -181,4 +182,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
-export default AddRegrindType;
+export default ProtectedRoute(AddRegrindType) ;

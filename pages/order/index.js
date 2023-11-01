@@ -10,6 +10,7 @@ import Link from 'next/link';
 import formatdate from '@/utils/formatdate';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 
 
@@ -114,4 +115,4 @@ export const getStaticProps = async ({
   },
 })
 
-export default OrderListing;
+export default ProtectedRoute(OrderListing);

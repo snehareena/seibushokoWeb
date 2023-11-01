@@ -8,9 +8,10 @@ import { useRouter } from "next/router";
 import formatdate from "@/utils/formatdate";
 import MantineReactTables from "@/components/MantineReactTable";
 import { UserManagement } from "@/utils/UserManagement";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 
-export default function InspectionReport() {
+ function InspectionReport() {
   const router=useRouter();
     const { t } = useTranslation('common')
     const [records, setRecords] = useState([]);
@@ -92,3 +93,4 @@ export const getStaticProps = async ({
       ])),
     },
   })
+  export default ProtectedRoute(InspectionReport)

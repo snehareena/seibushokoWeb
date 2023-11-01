@@ -1,11 +1,12 @@
 import Layout from "@/components/layout/Layout";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 import { UserManagement } from "@/utils/UserManagement";
 import {  Flex, Group, Paper, Text, Title } from "@mantine/core";
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useEffect, useState } from "react";
 
-export default function UserProfile() {
+function UserProfile() {
     const { t } = useTranslation('common');
     const [userName, setUsername] = useState('');
     const [clientName, setClientName] =useState('');
@@ -63,3 +64,4 @@ export const getStaticProps = async ({
       ])),
     },
   })
+  export default ProtectedRoute (UserProfile)

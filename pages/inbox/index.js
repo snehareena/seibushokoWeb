@@ -7,13 +7,14 @@ import Link from 'next/link'
 import { get } from "../api/apiUtils";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 // import Sent from "./Sent";
 
 const DynamicSentComponent = dynamic(()=>import ('./Sent'),{
   ssr:false,
 })
 
-export default function Index() {
+ function Index() {
     const { t } = useTranslation('common')
     const breadcrumbs = [
         { label: t('Inbox'), link: '/inbox' },
@@ -104,3 +105,4 @@ export const getStaticProps = async ({
       ])),
     },
   })
+  export default ProtectedRoute(Index)

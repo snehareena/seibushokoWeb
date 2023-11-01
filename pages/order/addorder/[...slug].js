@@ -25,6 +25,7 @@ import { get, post, put } from "@/pages/api/apiUtils";
 import { getFormattedDate } from "@/utils/dateUtils";
 import { UserManagement } from "@/utils/UserManagement";
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 
 const AddOrder = () => {
@@ -384,4 +385,4 @@ export const getStaticProps = async ({ locale }) => ({
   },
 });
 
-export default AddOrder;
+export default ProtectedRoute(AddOrder) ;

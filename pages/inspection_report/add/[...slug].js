@@ -21,6 +21,7 @@ import FormPart5 from "@/components/fields/inspection_rpt/formpart5";
 import FormPart6 from "@/components/fields/inspection_rpt/formpart6";
 import FormPart7 from "@/components/fields/inspection_rpt/formpart7";
 import SubmitButtons from "@/components/SubmitButtons";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 const registerBy = UserManagement.getItem("id");
 const userid = parseInt(registerBy);
@@ -238,4 +239,4 @@ export const getStaticProps = async ({ locale }) => ({
     ...(await serverSideTranslations(locale ?? "en", ["common"])),
   },
 });
-export default AddInspectionReport;
+export default ProtectedRoute(AddInspectionReport) ;

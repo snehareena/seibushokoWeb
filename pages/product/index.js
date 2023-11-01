@@ -10,8 +10,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import formatdate from '@/utils/formatdate';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
-export default function ProductList() {
+ function ProductList() {
   const { t } = useTranslation('common')
   const [records, setRecords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -122,3 +123,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
+export default ProtectedRoute(ProductList)

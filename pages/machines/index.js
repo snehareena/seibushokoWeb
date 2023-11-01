@@ -11,6 +11,7 @@ import { notifications } from '@mantine/notifications';
 import formatdate from '@/utils/formatdate';
 import MantineReactTables from '@/components/MantineReactTable';
 import { UserManagement } from '@/utils/UserManagement';
+import ProtectedRoute from '@/utils/ProtectedRoute';
 
 
 function Machines() {
@@ -39,7 +40,6 @@ function Machines() {
       setRecords(data.reverse()); 
       setLoading(false);
     } catch (error) {
-      console.error(error);
       setLoading(false);
     }
   };
@@ -122,4 +122,4 @@ export const getStaticProps = async ({
     ])),
   },
 })
-export default Machines;
+export default ProtectedRoute(Machines);

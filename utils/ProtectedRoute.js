@@ -9,7 +9,7 @@ const ProtectedRoute = (WrappedComponent) => {
     useEffect(() => {
       const token = UserManagement.getItem('token');
       if (!token) {
-        router.push('/');
+        router.push('/login');
       }
     }, []);
 

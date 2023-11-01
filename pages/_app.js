@@ -13,10 +13,13 @@ function App(props) {
 
   useEffect(()=>{
     const token = getToken();
-    if (!token && !router.pathname.includes('/login') && !router.pathname.includes('/forgot_password')) {
+    if(token){
+      router.pathname.includes('/login')?router.push('client_dashboard'):router.push(router.pathname);
+    }
+    else if (!token && !router.pathname.includes('/login') && !router.pathname.includes('/forgot_password')) {
       router.push('/login');
     }
-  },[router])
+  },[])
   return (
     <NavigationProvider>
               <Notifications autoClose={4000} position="top-right" />

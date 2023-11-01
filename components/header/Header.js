@@ -6,7 +6,6 @@ import {
     Burger,
     rem,
     Menu,
-    Button,
     Text,
     Select,
   } from '@mantine/core';
@@ -25,6 +24,7 @@ import BreadcrumbTrail from '../BreadCrumbs';
 import Link from 'next/link';
 import { UserManagement } from '@/utils/UserManagement';
 import Image from 'next/image';
+import Cookies from 'js-cookie';
  
 
 export const HeaderMenu = ({ breadcrumbs }) => {
@@ -35,7 +35,9 @@ export const HeaderMenu = ({ breadcrumbs }) => {
     const { t,i18n } = useTranslation("common");
     const [userMenuOpened, setUserMenuOpened] = useState(false);
     const handleLogout = () => {
+      const TOKEN_COOKIE = 'access_token';
       localStorage.clear();  
+      Cookies.remove(TOKEN_COOKIE);
            router.push('/login');
     };
 

@@ -38,9 +38,10 @@ export const FieldsArray = () => {
   const statuslist = [
     { value: "PENDING", label: "Pending" },
     { value: "REGRIND", label: "Regrind" },
-     { value: "REQUIREFIX", label: "Require Fix" },
+    { value: "REQUIREFIX", label: "Require Fix" },
     { value: "FINISHED", label: "Finished" },
     { value: "DELIVERED", label: "Delivered" },
+    {value:"INSPECTIONRPT", label:"Inspection Report"},
     { value: "RETURNED", label: "Returned" }
   ];
 

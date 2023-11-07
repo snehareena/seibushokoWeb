@@ -3,9 +3,12 @@ import { get } from "@/pages/api/apiUtils";
 import {  Modal } from "@mantine/core";
 import BasicTable from "@/components/BasicTable";
 import { removeNulls } from "@/utils/removeNulls";
+import {useTranslation} from 'next-i18next'
 
 function WorkOrderModal({ form, setShowModal, showModal,isEditing }) {
   const [records, setRecords] = useState([]);
+  const { t } = useTranslation("common");
+
   useEffect(() => { 
     fetchData();
   }, []);
@@ -72,24 +75,24 @@ function WorkOrderModal({ form, setShowModal, showModal,isEditing }) {
      })
    
    }
-const  columns=[{header: 'Work Order No', accessorKey:"work_order_no" ,    mantineTableBodyCellProps: ({ cell }) => ({
+const  columns=[{header: t('workOrder.workOrderNo'), accessorKey:"work_order_no" ,    mantineTableBodyCellProps: ({ cell }) => ({
   onClick: () => {
     let id =cell.row.original.id;
     handleRowClick(id)
   },
 }),},
-{ header: 'Cutter No',accessorKey:"cutter_no" },
-{ header: ' MFG No', accessorKey:"mfg_no" },
-{ header: 'Gear Dwg No',accessorKey:"geardrawing_no", },
-{ header: 'Product No ',accessorKey:"product_no",},
-{ header: ' Order No', accessorKey:"order_no"},
-{ header: ' Regrind Type',accessorKey:"regrind_type", },
-{ header: ' Regrind Form', accessorKey:"regrind_from" },
-{ header: ' Order Date',accessorKey:"workorder_date",},
-{ header: ' Location',accessorKey:"location", },
-{ header: ' Status', accessorKey:'workorder_status' },
-{ header: ' Client', accessorKey:"client_name"},
-{ header: ' Urgency',accessorKey:"urgency",},]
+{ header: t('content.cutter'),accessorKey:"cutter_no" },
+{ header: t('content.MFG'), accessorKey:"mfg_no" },
+{ header: t('Gear Dwg No'),accessorKey:"geardrawing_no", },
+{ header: t('workOrder.productNo'),accessorKey:"product_no",},
+{ header: t('content.orderno'), accessorKey:"order_no"},
+{ header: t('regrindType"'),accessorKey:"regrind_type", },
+{ header: t('workOrder.regirndform'), accessorKey:"regrind_from" },
+{ header: t('workOrder.orderdate'),accessorKey:"workorder_date",},
+{ header: t('workOrder.location'),accessorKey:"location", },
+{ header: t('status'), accessorKey:'workorder_status' },
+{ header: t('Client'), accessorKey:"client_name"},
+{ header: t('workOrder.urgency'),accessorKey:"urgency",},]
 const handleRowClick = (row) => {
   setShowModal(false);
   autofilInspectionReport(row);
@@ -100,7 +103,7 @@ const handleRowClick = (row) => {
       opened={showModal}
       onClose={() => setShowModal(false)}
       size="55%"
-      title="Work Order No"
+      title={t('workOrder.workOrderNo')}
       closeOnClickOutside={false}
     >
      <BasicTable columns={columns} data={records}/>

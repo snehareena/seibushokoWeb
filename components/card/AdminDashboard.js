@@ -51,7 +51,7 @@ export default function AdminDashboard({records,tools,username}) {
         <Card radius="md" shadow='xl' mt='lg'>
 			<Card.Section >
                 <Flex justify='space-between'>
-                    <Title className={classes.section} order={5}>Work order</Title>
+                <Title className={classes.section} order={5}>{t('Workorder')}</Title>
                     <Link href='/work_order'className={classes.link}> {t('view All')}</Link>
                 </Flex>
 			</Card.Section>

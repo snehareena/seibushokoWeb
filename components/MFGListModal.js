@@ -2,17 +2,19 @@ import { useEffect, useState } from "react"
 import { get } from "@/pages/api/apiUtils"
 import { Modal } from "@mantine/core"
 import BasicTable from "./BasicTable"
+import {useTranslation} from 'next-i18next'
 
 export default function MFGListModal({setMfgModal, mfgModal,cutterId }) {
     const [records, setRecords] = useState([]);
+    const { t } = useTranslation("common");
     const columns = [
-        {header:"MFG NO", accessorKey:"mfg_no", size:100, Cell: ({ renderedCellValue }) => <strong style={{color:'#518FE2'}}>{renderedCellValue}</strong>},
-        {header:"Cutter NO", accessorKey:"cutter_no", size:100},
-        {header:"Status", accessorKey:"status", size:100},
-        {header:"Drawing NO", accessorKey:"drawing_no", size:100},
-        {header:"Client Name", accessorKey:"client_name", size:100},
-        {header:"Register By", accessorKey:"regrregister_by", size:100},
-        {header:"Supplier", accessorKey:"supplier", size:100},
+        {header:t('content.MFG'), accessorKey:"mfg_no", size:100, Cell: ({ renderedCellValue }) => <strong style={{color:'#518FE2'}}>{renderedCellValue}</strong>},
+        {header:t('content.cutter'), accessorKey:"cutter_no", size:100},
+        {header:t('status'), accessorKey:"status", size:100},
+        {header:t('MFG.Drawing No'), accessorKey:"drawing_no", size:100},
+        {header:t('Client.Client'), accessorKey:"client_name", size:100},
+        {header:t('content.registedBy'), accessorKey:"regrregister_by", size:100},
+        {header:t('MFG.Supplier'), accessorKey:"supplier", size:100},
 
     ]
     useEffect(()=>{
@@ -33,7 +35,7 @@ export default function MFGListModal({setMfgModal, mfgModal,cutterId }) {
     opened={mfgModal}
     onClose={() => setMfgModal(false)}
     size="xl"
-    title="MFG"
+    title={t('content.MFG')}
     closeOnClickOutside={false}
     >
         <BasicTable columns={columns} data={records} mfg={true}/>

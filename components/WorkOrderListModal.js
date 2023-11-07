@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { get } from "@/pages/api/apiUtils";
 import { Modal } from "@mantine/core";
 import BasicTable from "./BasicTable";
+import {useTranslation} from 'next-i18next'
 
 export default function WorkOrderListModal({
   setShowModal,
@@ -10,22 +11,24 @@ export default function WorkOrderListModal({
   MfgId,
 }) {
   const [records, setRecords] = useState([]);
+  const { t } = useTranslation("common");
+
   const columns = [
     {
-      header: "Work order NO",
+      header: t('workOrder.workOrderNo'),
       accessorKey: "work_order_no",
       size: 100,
       Cell: ({ renderedCellValue }) => (
         <strong style={{ color: "#518FE2" }}>{renderedCellValue}</strong>
       ),
     },
-    { header: "Status", accessorKey: "workorder_status", size: 100 },
-    { header: "Cutter NO", accessorKey: "cutter_no", size: 100 },
-    { header: "MFG NO", accessorKey: "mfg_no", size: 100 },
-    { header: "Order NO", accessorKey: "order_no", size: 100 },
-    { header: "Urgency", accessorKey: "urgency", size: 100 },
-    { header: "Regrind_From", accessorKey: "regrind_from", size: 100 },
-    { header: "Client Name", accessorKey: "client_name", size: 100 },
+    { header: t('status'), accessorKey: "workorder_status", size: 100 },
+    { header: t('content.cutter'), accessorKey: "cutter_no", size: 100 },
+    { header: t('content.MFG'), accessorKey: "mfg_no", size: 100 },
+    { header: t('content.orderno'), accessorKey: "order_no", size: 100 },
+    { header: t('workOrder.urgency'), accessorKey: "urgency", size: 100 },
+    { header: t('workOrder.regirndform'), accessorKey: "regrind_from", size: 100 },
+    { header: t('Client Name'), accessorKey: "client_name", size: 100 },
   ];
   const fetchData = useCallback(async () => {
     let url = cutterId? `/workorder/all/${cutterId}`:`/workorder/all/mfg-${MfgId}`;
@@ -50,7 +53,7 @@ export default function WorkOrderListModal({
       opened={showModal}
       onClose={closeModal}
       size="xl"
-      title="Work Orders"
+      title= {t('Workorder')}
       closeOnClickOutside={false}
     >
       <BasicTable columns={columns} data={records} workOrder={true} />

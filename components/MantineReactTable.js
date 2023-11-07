@@ -127,7 +127,7 @@ const MantineReactTables = (props) => {
         {page == "cutter" && (
           <Box>
             <Flex gap="sm" direction={row}>
-              <Tooltip label={t("Regrind")}>
+            <Tooltip label={t("MFG.Regrind")}>
                 <ActionIcon>
                   <IconFileAnalytics
                     size={size}
@@ -150,7 +150,7 @@ const MantineReactTables = (props) => {
         )}
         {page == "mfg" && (
           <Box>
-            <Tooltip label={t("Regrind")}>
+            <Tooltip label={t("MFG.Regrind")}>
               <ActionIcon>
                 <IconFileAnalytics
                   size={size}

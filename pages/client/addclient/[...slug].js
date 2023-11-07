@@ -139,7 +139,7 @@ function AddClient() {
               <TextInput key={field.name} label={field.label}   withAsterisk={field?.required} {...form.getInputProps(field.name)} />
             ))}
             <Checkbox
-              label="Active"
+              label={t('User.Active')}
               checked={form.values.active === 1}
               onChange={handleActiveChange}
             />

@@ -3,9 +3,12 @@ import { get } from "@/pages/api/apiUtils";
 import { Modal } from "@mantine/core";
 import BasicTable from "./BasicTable";
 import { removeNulls } from "@/utils/removeNulls";
+import {useTranslation} from 'next-i18next'
 
 function OrderDataTable({ form, setOrderShowModal, showOrderModal }) {
   const [records, setRecords] = useState([]);
+  const { t } = useTranslation("common");
+
   useEffect(() => { 
     fetchData();
   }, []);
@@ -38,18 +41,18 @@ function OrderDataTable({ form, setOrderShowModal, showOrderModal }) {
   };
 
 const columns=[
-  {header:'Order', accessorKey: "order_no",    mantineTableBodyCellProps: ({ cell }) => ({
+  {header:t('content.orderno'), accessorKey: "order_no",    mantineTableBodyCellProps: ({ cell }) => ({
     onClick: () => {
       let id =cell.row.original.id;
       handleRowClick(id);
     },
   }),},
-  {header:'Cutter#',  accessorKey: 'cutter_no', },
-  { header:'MFG#', accessorKey: 'mfg_no', },
-  {header:'Drawing#',  accessorKey: 'drawing_no', },
-  { header:'Date', accessorKey: 'order_date', },
-  { header:'Product', accessorKey: 'product', },
-  {header:'Remark',  accessorKey: 'remarks', },
+  {header:t('cutter.Cutter No'),  accessorKey: 'cutter_no', },
+  {header:t('content.MFG'), accessorKey: 'mfg_no', },
+  {header:t('MFG.Drawing No'),  accessorKey: 'drawing_no', },
+  {header:t('content.date'), accessorKey: 'order_date', },
+  {header:t('content.Product'), accessorKey: 'product', },
+  {header:t('content.remark'),  accessorKey: 'remarks', },
 
 ]
   return (
@@ -57,7 +60,7 @@ const columns=[
       opened={showOrderModal}
       onClose={() => setOrderShowModal(false)}
       size="xl"
-      title="Order No"
+      title={t('content.orderno')}
       closeOnClickOutside={false}
     >
       <BasicTable columns={columns} data={records}/>

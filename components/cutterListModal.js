@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { get } from "@/pages/api/apiUtils";
 import { Modal } from "@mantine/core";
 import BasicTable from "./BasicTable";
+import {useTranslation} from 'next-i18next'
 
 function CustomDataTable({  setShowModal, showModal ,form,setCutter}) {
 
   const [records, setRecords] = useState([]);
+  const { t } = useTranslation("common");
  const handleRowClick=(row)=>{
   setShowModal(false);
   form.setValues({ "cutter_no": row.id, 
@@ -14,22 +16,22 @@ function CustomDataTable({  setShowModal, showModal ,form,setCutter}) {
 });
  }
   const columns=[
-    { header: "Cutter No", accessorKey:"cutter_no" ,    mantineTableBodyCellProps: ({ cell }) => ({
+    { header: t('cutter.Cutter No'), accessorKey:"cutter_no" ,    mantineTableBodyCellProps: ({ cell }) => ({
       onClick: () => {
         let row =cell.row.original;
         handleRowClick(row)
       },
     }),},
-    { header: "Type", accessorKey: "type" },
-    { header: "Cutter Drawing No", accessorKey: "cutter_dwg_no" },
-    { header: "Module", accessorKey: "module" },
-    { header: "Pressure Angle", accessorKey: "pressure_ang" },
-    { header: "Lead", accessorKey: "lead" },
-    { header: "Helix Angle", accessorKey: "helix_angle" },
-    { header: "Number Of Teeth ", accessorKey: "no_of_teeth" },
-    { header: "Hardness", accessorKey: "hardness" },
-    { header: "Supplier", accessorKey: "supplier" },
-    { header: "Client", accessorKey: "client_name" },
+    { header: t('cutter.Type'), accessorKey: "type" },
+    { header: t('cutter.Cutter Drawing No'), accessorKey: "cutter_dwg_no" },
+    { header: t('cutter.Module'), accessorKey: "module" },
+    { header: t('cutter.Pressure Angle'), accessorKey: "pressure_ang" },
+    { header: t('cutter.Lead'), accessorKey: "lead" },
+    { header: t('cutter.Helix Angle'), accessorKey: "helix_angle" },
+    { header: t('cutter.Number Of Teeth'), accessorKey: "no_of_teeth" },
+    { header: t('cutter.Hardness'), accessorKey: "hardness" },
+    { header: t('cutter.Supplier'), accessorKey: "supplier" },
+    { header: t('Client.Client'), accessorKey: "client_name" },
   ]
   useEffect(() => {
     fetchData();
@@ -47,7 +49,7 @@ function CustomDataTable({  setShowModal, showModal ,form,setCutter}) {
       opened={showModal}
       onClose={() => setShowModal(false)}
       size="xl"
-      title="Cutter No"
+      title={t('cutter.Cutter No')}
       closeOnClickOutside={false}
     >
             <BasicTable columns={columns} data={records}/>

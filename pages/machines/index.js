@@ -51,7 +51,7 @@ function Machines() {
   }
   
   const handleAddClient = () => {
-    router.push('/machines/add_machines/new', null, { shallow: true });
+    router.push({pathname:'/machines/add_machines'});
   };
   const closeModal = () => {
     setIsOpen(false);

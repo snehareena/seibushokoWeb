@@ -95,7 +95,7 @@ const hideColumn={mfg_no:false,drawing_no:false,cutter_no:false}
             <Anchor  mt="sm" href="">{show_archive&& <IconArchiveFilled size={11} color="blue" />}{show_archive?"Archived":"Back"}</Anchor></UnstyledButton>
           </Box>
           {visible == 1 ?
-            <Link href='order/addorder/new'><Button>Add New</Button></Link>
+            <Link href={{pathname:'order/addorder'}}><Button>Add New</Button></Link>
             :null}
         </Flex>
       </Flex>

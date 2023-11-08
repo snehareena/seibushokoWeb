@@ -31,7 +31,7 @@ const breadcrumbs = [
   };
   const router = useRouter();
   const handleAddCutter =()=>{
-    router.push('cutter/addcutter/new')
+    router.push({pathname:'cutter/addcutter'})
   }
   const editInfo=(row)=>{
     router.push(`/cutter/addcutter/edit/${row.id}`);  

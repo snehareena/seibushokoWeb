@@ -76,7 +76,7 @@ function MFG() {
   };
   const router = useRouter();
   const handleAddClient = () => {
-    router.push('/mfg/add_mfg/new', null, { shallow: true });
+    router.push({pathname:'/mfg/add_mfg'});
   };
 const hideColumn={drawing_no:false,process_type:false,register_date:false,location:false,regrind_count:false,status:false}
 useEffect(() => {

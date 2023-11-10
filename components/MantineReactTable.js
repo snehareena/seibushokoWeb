@@ -43,7 +43,8 @@ const MantineReactTables = (props) => {
   };
   const table = useMantineReactTable({
     localization:{
-      actions:t('action')
+      actions:t('action'),
+      rowsPerPage:t('Rows per page')
     },
     columns: column.map((col) => ({
       ...col,

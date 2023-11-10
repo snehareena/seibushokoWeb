@@ -398,6 +398,7 @@
   "Add Work Order": "作業指示書を追加",
   "Edit Work Order": "作業指示書を編集",
   "View Messge": "メッセージを見る",
+  "Rows per page":"ページあたりの行数",
 
   "INVALID_EXTENSION": "無効なファイルタイプ",
   "EMAIL_EXIST": "メールは既に存在します",

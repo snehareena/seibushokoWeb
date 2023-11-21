@@ -22,7 +22,7 @@ function ClientList() {
 
   const router = useRouter();
   const handleAddUser = () => {
-    router.push({pathname:'/user/adduser'})
+    router.push('/user/adduser/new')
   }
 
   const fetchData = async () =>{

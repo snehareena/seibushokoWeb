@@ -72,7 +72,7 @@ function ClientList() {
 
   const router = useRouter();
   const handleAddClient = () => {
-    router.push({pathname:'/client/addclient'});
+    router.push('/client/addclient/new');
   };
 const hideColumn={active:false,contact_person1_phone:false,address:false}
   const columns=[

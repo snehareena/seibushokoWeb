@@ -18,7 +18,7 @@ import ProtectedRoute from "@/utils/ProtectedRoute";
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(true);
     const handleAddNew = () => {
-      router.push({pathname:'/inspection_report/add'});
+      router.push('/inspection_report/add/new');
     };
     const fetchData = async ()=>{
       try{

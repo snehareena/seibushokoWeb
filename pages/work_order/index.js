@@ -21,7 +21,7 @@ function WorkOrderList() {
 
   const router = useRouter();
   const handleAddWorkOrder =()=>{
-    router.push({pathname:'/work_order/add_workorder'})
+    router.push('/work_order/add_workorder/new')
   }
 
   const fetchData = async () =>{

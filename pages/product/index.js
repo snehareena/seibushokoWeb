@@ -69,7 +69,7 @@ import ProtectedRoute from '@/utils/ProtectedRoute';
   };
   const router = useRouter();
   const handleAddProduct =()=>{
-    router.push({pathname:'/product/add_product'});  }
+    router.push('/product/add_product/new');  }
   const editInfo=(row)=>{
     router.push(`/product/add_product/edit/${row.id}`);
     

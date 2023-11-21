@@ -63,7 +63,7 @@ function RegrindType() {
   };
   const router = useRouter();
   const handleAddClient = () => {
-    router.push({pathname:'regrind_type/add_regrindtype'});
+    router.push('regrind_type/add_regrindtype/new');
   };
   const fetchClientId = () =>{
     const profile_data = JSON.parse(UserManagement.getItem("profile_data") || '{}');

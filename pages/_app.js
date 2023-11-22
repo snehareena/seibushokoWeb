@@ -11,21 +11,16 @@ function App(props) {
   const { Component, pageProps, } = props;
   const router = useRouter();
 
-  // useEffect(()=>{
-  //   const token = getToken();
-  //   if(token){
-  //     router.pathname.includes('/login')?router.push('client_dashboard'):router.push(router.pathname);
-  //   }
-  //   else if (!token && !router.pathname.includes('/login') && !router.pathname.includes('/forgot_password')) {
-  //     router.push('/login');
-  //   }
-  // },[])
   useEffect(()=>{
     const token = getToken();
-    if (!token && !router.pathname.includes('/login')) {
+    if(token && router.pathname.includes('/login')){
+      router.push('/client_dashboard')
+    }
+    else if (!token && !router.pathname.includes('/login') && !router.pathname.includes('/forgot_password')) {
       router.push('/login');
     }
   },[router.pathname])
+  
   return (
     <NavigationProvider>
               <Notifications autoClose={4000} position="top-right" />

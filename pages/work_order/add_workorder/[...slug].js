@@ -116,9 +116,7 @@ const AddWorkOrder = () => {
       mfg_no: (value) => value == 0 && "MFG no is required",
       client_id: (value) => value == 0 && "Client is required",
       work_order_no: (value) => value.length == 0 && "Workorder no is required",
-      workorder_status: (value) =>
-        value.length == 0 && "Workorder status is required",
-      product_no: (value) => value.length == 0 && "Product no is required",
+      workorder_status: (value) => value.length == 0 && "Workorder status is required",
       location: (value) => value.length == 0 && "Location is required",
     },
   });

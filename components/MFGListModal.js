@@ -18,7 +18,8 @@ export default function MFGListModal({setMfgModal, mfgModal,cutterId }) {
 
     ]
     useEffect(()=>{
-        fetchData();
+        cutterId !== 0?
+        fetchData():null
     },[cutterId])
     
     const fetchData = async ()=>{

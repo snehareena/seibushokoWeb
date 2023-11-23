@@ -20,6 +20,7 @@ function CutterList() {
   const [id,setId] = useState(false);
   const [cutterId, setCutterId] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [mfgCutterId,setMfgCutterId] = useState(0)
   const [showModal, setShowModal] = useState(false);
   const [mfgModal, setMfgModal] = useState(false);
   const [visible, setVisible] = useState(0);
@@ -84,7 +85,7 @@ const hideColumn={cutter_dwg_no:false,pressure_ang:false,helix_angle:false,hardn
     setShowModal(true);
   }
   const listMfg = (row) =>{
-    setCutterId(row.id);
+    setMfgCutterId(row.id);
     setMfgModal(true);
   }
  const columns=[
@@ -102,7 +103,7 @@ const hideColumn={cutter_dwg_no:false,pressure_ang:false,helix_angle:false,hardn
     <Layout breadcrumbs={breadcrumbs}> 
       <Box>
         <WorkOrderListModal setShowModal={setShowModal} showModal={showModal} cutterId={cutterId}/>
-        <MFGListModal setMfgModal={setMfgModal} mfgModal={mfgModal} cutterId={cutterId}/>
+        <MFGListModal setMfgModal={setMfgModal} mfgModal={mfgModal} cutterId={mfgCutterId}/>
         <DeleteModal isOpen={isOpen} onClose={closeModal}  onConfirm={handleDelete}/>
         <Flex justify='space-between'>
           <Title order={3}>{t('content.cutterList')}</Title>

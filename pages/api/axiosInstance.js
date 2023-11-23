@@ -26,9 +26,11 @@ instance.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
       let token = UserManagement.getItem("token");
-        if ((token !== null) && error.response.status === 401) {
-          UserManagement.removeItem('token');
-        }
+      if (token && error.response.status === 401) {
+        localStorage.clear();  
+        Cookies.remove(TOKEN_COOKIE);
+             router.push('/login');
+      }
     return Promise.reject(error);
   }
 );

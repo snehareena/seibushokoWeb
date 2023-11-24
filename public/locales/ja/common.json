@@ -195,6 +195,12 @@
   "workOrder.Degree": "度",
   "workOrder.Minutes": "分",
   "workOrder.Second": "秒",
+  "location.Seibushoko":"JP-Seibushoko",
+  "location.Customer":"JP-Customer",
+  "arbor.Keep":"JP-Keep",
+  "arbor.Return":"JP-Return",
+  "arbor.None": "JP-None",
+
 
   "inspection.Work Order": "作業指示",
   "inspection.Tool No": "工具番号[#]",

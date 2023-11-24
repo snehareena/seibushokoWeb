@@ -1,4 +1,5 @@
 import { UserManagement } from '@/utils/UserManagement';
+import { clearToken } from '@/utils/cookieService';
 import axios from 'axios';
 
 const baseUrl = process.env.NEXT_PUBLIC_REACT_APP_BASEURL;
@@ -27,9 +28,9 @@ instance.interceptors.response.use(
     const originalRequest = error.config;
       let token = UserManagement.getItem("token");
       if (token && error.response.status === 401) {
+        clearToken();
         localStorage.clear();  
-        Cookies.remove(TOKEN_COOKIE);
-             router.push('/login');
+        router.push('/login');
       }
     return Promise.reject(error);
   }

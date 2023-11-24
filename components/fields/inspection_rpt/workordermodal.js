@@ -86,7 +86,7 @@ const  columns=[{header: t('workOrder.workOrderNo'), accessorKey:"work_order_no"
 { header: t('Gear Dwg No'),accessorKey:"geardrawing_no", },
 { header: t('workOrder.productNo'),accessorKey:"product_no",},
 { header: t('content.orderno'), accessorKey:"order_no"},
-{ header: t('regrindType"'),accessorKey:"regrind_type", },
+{ header: t('regrindType'),accessorKey:"regrind_type", },
 { header: t('workOrder.regirndform'), accessorKey:"regrind_from" },
 { header: t('workOrder.orderdate'),accessorKey:"workorder_date",},
 { header: t('workOrder.location'),accessorKey:"location", },

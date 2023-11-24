@@ -198,6 +198,12 @@
     "workOrder.Degree":"Degree",
     "workOrder.Minutes":"Minutes",
     "workOrder.Second":"Second",
+    "location.Seibushoko":"Seibushoko",
+    "location.Customer":"Customer",
+    "arbor.Keep":"Keep",
+    "arbor.Return":"Return",
+    "arbor.None": "None",
+
     
     "inspection.Work Order":"Work Order",
     "inspection.Tool No":"Tool No ",
